@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Figuras Geométricas</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <main>
+        <h1>Calculadora de Figuras Geométricas</h1>
+        
+        <div class="action-buttons">
+            <button id="btn-limpiar" class="btn-limpiar" onclick="limpiarFormulario()">Limpiar Formulario</button>
+        </div>
+        
+        <div class="cards-container">
+            <!-- Rectángulo Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Rectángulo</h2>
+                    <div class="card-image">
+                        <svg width="120" height="80" viewBox="0 0 120 80">
+                            <rect x="10" y="10" width="100" height="60" stroke="black" fill="none" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <label for="base-rectangulo">Base:</label>
+                        <input type="number" id="base-rectangulo" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="altura-rectangulo">Altura:</label>
+                        <input type="number" id="altura-rectangulo" required>
+                    </div>
+                    <div class="card-actions">
+                        <button type="button" onclick="calcular('rectangulo', 'area')">Calcular Área</button>
+                        <button type="button" onclick="calcular('rectangulo', 'perimetro')">Calcular Perímetro</button>
+                    </div>
+                </div>
+                <div class="card-result" id="result-rectangulo"></div>
+            </div>
+
+            <!-- Triángulo Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Triángulo</h2>
+                    <div class="card-image">
+                        <svg width="120" height="80" viewBox="0 0 120 80">
+                            <polygon points="60,10 10,70 110,70" stroke="black" fill="none" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <label for="base-triangulo">Base:</label>
+                        <input type="number" id="base-triangulo" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="altura-triangulo">Altura:</label>
+                        <input type="number" id="altura-triangulo" required>
+                    </div>
+                    <div class="card-actions">
+                        <button type="button" onclick="calcular('triangulo', 'area')">Calcular Área</button>
+                        <button type="button" onclick="calcular('triangulo', 'perimetro')">Calcular Perímetro</button>
+                    </div>
+                </div>
+                <div class="card-result" id="result-triangulo"></div>
+            </div>
+
+            <!-- Círculo Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Círculo</h2>
+                    <div class="card-image">
+                        <svg width="120" height="80" viewBox="0 0 120 80">
+                            <circle cx="60" cy="40" r="30" stroke="black" fill="none" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <label for="radio-circulo">Radio:</label>
+                        <input type="number" id="radio-circulo" required>
+                    </div>
+                    <div class="card-actions">
+                        <button type="button" onclick="calcular('circulo', 'area')">Calcular Área</button>
+                        <button type="button" onclick="calcular('circulo', 'perimetro')">Calcular Perímetro</button>
+                    </div>
+                </div>
+                <div class="card-result" id="result-circulo"></div>
+            </div>
+        </div>
+
+        <script src="/js/script.js"></script>
+    </main>
+</body>
+</html>
