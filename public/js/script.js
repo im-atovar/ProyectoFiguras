@@ -1,8 +1,17 @@
+/**
+ * Función para calcular el área o perímetro de una figura geométrica
+ * según los datos ingresados en el formulario.
+ * Esta función valida los datos ingresados,
+ * envía una solicitud al servidor y muestra el resultado.
+ * @param {string} figura Ejemplo: 'rectangulo', 'triangulo', 'circulo'
+ * @param {string} operacion Ejemplo: 'area', 'perimetro'
+ * @returns {Promise<void>} Esta función no retorna un valor, pero actualiza el DOM con el resultado.
+ * @throws {Error} Si hay un error en la solicitud o en los datos ingresados.
+ */
 async function calcular(figura, operacion) {
     let datos = {};
     let error = false;
     
-    // Validar los datos ingresados según la figura seleccionada
     if (figura === 'rectangulo') {
         const base = document.getElementById('base-rectangulo').value;
         const altura = document.getElementById('altura-rectangulo').value;
@@ -34,17 +43,13 @@ async function calcular(figura, operacion) {
         }
     }
     
-    // Si no hay errores, enviar los datos al servidor
     if (!error) {
-        // Manejo de bloque try-catch para capturar errores de red o del servidor
         try {
-            // Enviar los datos al servidor usando fetch
             const response = await fetch('/calcular', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                // Convertir los datos a JSON
                 body: JSON.stringify(datos)
             });
             
@@ -53,7 +58,6 @@ async function calcular(figura, operacion) {
                 <p class="success">${operacion === 'area' ? 'Área' : 'Perímetro'}: ${result.resultado}</p>
             `;
         } catch (error) {
-            // Mostrar error en el resultado
             document.getElementById(`result-${figura}`).innerHTML = `
                 <p class="error">Error: ${error.message}</p>
             `;
@@ -61,7 +65,11 @@ async function calcular(figura, operacion) {
     }
 }
 
-// Función para limpiar el formulario y los resultados
+/**
+ * Función para limpiar el formulario y los resultados.
+ * Esta función resetea los campos de entrada y los resultados mostrados.
+ * @returns {void} Esta función no retorna un valor, pero actualiza el DOM.
+ */
 function limpiarFormulario() {
     // Limpiar inputs
     document.getElementById('base-rectangulo').value = '';

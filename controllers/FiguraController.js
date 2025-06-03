@@ -1,5 +1,11 @@
-import FiguraService from "../models/figuraService.js";
+import FiguraService from "../models/FiguraService.js";
 
+/**
+ * Controlador para manejar las operaciones de figuras geométricas.
+ * Permite calcular el área y el perímetro de rectángulos, triángulos y círculos.
+ * @class FiguraController
+ * @property {FiguraService} figuraServices - Servicio para realizar cálculos de figuras geométricas.
+ */
 class FiguraController {
     figuraServices = null;
 
@@ -9,10 +15,26 @@ class FiguraController {
         this.calcularFiguras = this.calcularFiguras.bind(this);
     }
 
+    /**
+     * Renderiza el formulario para calcular el área de figuras geométricas.  
+     * @param {Object} request - Objeto de solicitud de Express.
+     * @param {Object} response - Objeto de respuesta de Express.
+     * @returns {void} 
+     * @memberof FiguraController
+     */
     formularioCalcularArea(request, response) {
         response.render("area");
     }
 
+    /**
+     * Calcula el área o perímetro de una figura geométrica
+     * según los datos ingresados en el formulario.
+     * @param {Object} request - Objeto de solicitud de Express.
+     * @param {Object} response - Objeto de respuesta de Express.
+     * @returns {void}
+     * @memberof FiguraController
+     * @throws {Error} Si la figura o la operación no son válidas, o si los datos ingresados son incorrectos.
+     */ 
     calcularFiguras(request, response) {
         const { figura, operacion, base, altura, radio } = request.body;
         let resultado;
