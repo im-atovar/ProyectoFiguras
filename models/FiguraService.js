@@ -1,11 +1,10 @@
 /**
- * @file FiguraService.js
- * @description Servicio para realizar cálculos de áreas y perímetros de figuras geométricas.
+ * Servicio para realizar cálculos de áreas y perímetros de figuras geométricas.
  * Soporta rectángulos, triángulos y círculos.
  * @author Andres Felipe Tovar Iquinas
  * @version 1.0.0
  */
-class FiguraService {    
+class FiguraService {
     /**
      * Calcula el área de un rectángulo.
      * @param {number} base - La base del rectángulo.
@@ -117,6 +116,128 @@ class FiguraService {
             throw new Error("El radio debe ser un número positivo.");
         }
         return parseFloat((2 * Math.PI * radio).toFixed(2));
+    }
+
+    /**
+     * Calcula el área de un cuadrado.
+     * @param {number} lado - El lado del cuadrado.
+     * @returns {number} Resultado del área del cuadrado.
+     * @throws {Error} Si el lado es menor o igual a cero.
+     * @memberof FiguraService
+     * @example
+     * const figuraService = new FiguraService();
+     * const area = figuraService.calcularAreaCuadrado(5);
+     * console.log(area); // 25.00
+     */
+    calcularAreaCuadrado(lado) {
+        if (lado <= 0) {
+            throw new Error("El lado debe ser un número positivo.");
+        }
+        return parseFloat((lado * lado).toFixed(2));
+    }
+
+    /**
+     * Calcula el perímetro de un cuadrado.
+     * @param {number} lado - El lado del cuadrado.
+     * @returns {number} Resultado del perímetro del cuadrado.
+     * @throws {Error} Si el lado es menor o igual a cero.
+     * @memberof FiguraService
+     * @example
+     * const figuraService = new FiguraService();
+     * const perimetro = figuraService.calcularPerimetroCuadrado(5);
+     * console.log(perimetro); // 20.00
+     */
+    calcularPerimetroCuadrado(lado) {
+        if (lado <= 0) {
+            throw new Error("El lado debe ser un número positivo.");
+        }
+        return parseFloat((4 * lado).toFixed(2));
+    }
+
+    /**
+     * Calcula el área de un trapecio.
+     * @param {number} baseMayor - La base mayor del trapecio.
+     * @param {number} baseMenor - La base menor del trapecio.
+     * @param {number} altura - La altura del trapecio.
+     * @returns {number} Resultado del área del trapecio.
+     * @throws {Error} Si alguna de las bases o la altura son menores o iguales a cero.
+     * @memberof FiguraService
+     * @example
+     * const figuraService = new FiguraService();
+     * const area = figuraService.calcularAreaTrapecio(5, 3, 4);
+     * console.log(area); // 16.00
+     */
+    calcularAreaTrapecio(baseMayor, baseMenor, altura) {
+        if (baseMayor <= 0 || baseMenor <= 0 || altura <= 0) {
+            throw new Error("Las bases y la altura deben ser números positivos.");
+        }
+        return parseFloat((((parseFloat(baseMayor) + parseFloat(baseMenor)) * altura) / 2).toFixed(2));
+    }
+
+    /**
+     * Calcula el perímetro de un trapecio.
+     * @param {number} baseMayor - La base mayor del trapecio.
+     * @param {number} baseMenor - La base menor del trapecio.
+     * @param {number} altura - La altura del trapecio.
+     * @returns {number} Resultado del perímetro del trapecio.
+     * @throws {Error} Si alguna de las bases o la altura son menores o iguales a cero.
+     * @memberof FiguraService
+     * @example
+     * const figuraService = new FiguraService();
+     * const perimetro = figuraService.calcularPerimetroTrapecio(5, 3, 4);
+     * console.log(perimetro); // 18.00
+     */
+    calcularPerimetroTrapecio(baseMayor, baseMenor, altura) {
+        if (baseMayor <= 0 || baseMenor <= 0 || altura <= 0) {
+            throw new Error("Las bases y la altura deben ser números positivos.");
+        }
+        
+        // Calculamos los lados usando el teorema de Pitágoras
+        const diferenciaBases = (parseFloat(baseMayor) - parseFloat(baseMenor)) / 2;
+        const lado = Math.sqrt(Math.pow(diferenciaBases, 2) + Math.pow(altura, 2));
+        
+        return parseFloat((parseFloat(baseMayor) + parseFloat(baseMenor) + 2 * lado).toFixed(2));
+    }
+
+    /**
+     * Calcula el área de un rombo.
+     * @param {number} diagonalMayor - La diagonal mayor del rombo.
+     * @param {number} diagonalMenor - La diagonal menor del rombo.
+     * @returns {number} Resultado del área del rombo.
+     * @throws {Error} Si alguna de las diagonales es menor o igual a cero.
+     * @memberof FiguraService
+     * @example
+     * const figuraService = new FiguraService();
+     * const area = figuraService.calcularAreaRombo(10, 5);
+     * console.log(area); // 25.00
+     */
+    calcularAreaRombo(diagonalMayor, diagonalMenor) {
+        if (diagonalMayor <= 0 || diagonalMenor <= 0) {
+            throw new Error("Las diagonales deben ser números positivos.");
+        }
+        return parseFloat(((diagonalMayor * diagonalMenor) / 2).toFixed(2));
+    }
+
+    /**
+     * Calcula el perímetro de un rombo.
+     * @param {number} diagonalMayor - La diagonal mayor del rombo.
+     * @param {number} diagonalMenor - La diagonal menor del rombo.
+     * @returns {number} Resultado del perímetro del rombo.
+     * @throws {Error} Si alguna de las diagonales es menor o igual a cero.
+     * @memberof FiguraService
+     * @example
+     * const figuraService = new FiguraService();
+     * const perimetro = figuraService.calcularPerimetroRombo(10, 5);
+     * console.log(perimetro); // 40.00
+     */
+    calcularPerimetroRombo(diagonalMayor, diagonalMenor) {
+        if (diagonalMayor <= 0 || diagonalMenor <= 0) {
+            throw new Error("Las diagonales deben ser números positivos.");
+        }
+        
+        const lado = Math.sqrt(Math.pow(diagonalMayor/2, 2) + Math.pow(diagonalMenor/2, 2));
+        
+        return parseFloat((4 * lado).toFixed(2));
     }
 }
 

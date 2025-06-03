@@ -41,6 +41,36 @@ async function calcular(figura, operacion) {
         } else {
             datos = { figura, operacion, radio };
         }
+    } else if (figura === 'cuadrado') {
+        const lado = document.getElementById('lado-cuadrado').value;
+        
+        if (!lado || lado <= 0) {
+            document.getElementById('result-cuadrado').innerHTML = '<p class="error">Por favor ingrese un lado válido (mayor a 0)</p>';
+            error = true;
+        } else {
+            datos = { figura, operacion, lado };
+        }
+    } else if (figura === 'trapecio') {
+        const baseMayor = document.getElementById('base-mayor-trapecio').value;
+        const baseMenor = document.getElementById('base-menor-trapecio').value;
+        const altura = document.getElementById('altura-trapecio').value;
+        
+        if (!baseMayor || !baseMenor || !altura || baseMayor <= 0 || baseMenor <= 0 || altura <= 0) {
+            document.getElementById('result-trapecio').innerHTML = '<p class="error">Por favor ingrese valores válidos (mayores a 0)</p>';
+            error = true;
+        } else {
+            datos = { figura, operacion, baseMayor, baseMenor, altura };
+        }
+    } else if (figura === 'rombo') {
+        const diagonalMayor = document.getElementById('diagonal-mayor-rombo').value;
+        const diagonalMenor = document.getElementById('diagonal-menor-rombo').value;
+        
+        if (!diagonalMayor || !diagonalMenor || diagonalMayor <= 0 || diagonalMenor <= 0) {
+            document.getElementById('result-rombo').innerHTML = '<p class="error">Por favor ingrese valores válidos (mayores a 0)</p>';
+            error = true;
+        } else {
+            datos = { figura, operacion, diagonalMayor, diagonalMenor };
+        }
     }
     
     if (!error) {
@@ -77,9 +107,18 @@ function limpiarFormulario() {
     document.getElementById('base-triangulo').value = '';
     document.getElementById('altura-triangulo').value = '';
     document.getElementById('radio-circulo').value = '';
+    document.getElementById('lado-cuadrado').value = '';
+    document.getElementById('base-mayor-trapecio').value = '';
+    document.getElementById('base-menor-trapecio').value = '';
+    document.getElementById('altura-trapecio').value = '';
+    document.getElementById('diagonal-mayor-rombo').value = '';
+    document.getElementById('diagonal-menor-rombo').value = '';
     
     // Limpiar resultados
     document.getElementById('result-rectangulo').innerHTML = '';
     document.getElementById('result-triangulo').innerHTML = '';
     document.getElementById('result-circulo').innerHTML = '';
+    document.getElementById('result-cuadrado').innerHTML = '';
+    document.getElementById('result-trapecio').innerHTML = '';
+    document.getElementById('result-rombo').innerHTML = '';
 }

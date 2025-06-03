@@ -91,6 +91,87 @@
                 </div>
                 <div class="card-result" id="result-circulo"></div>
             </div>
+
+            <!-- Cuadrado Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Cuadrado</h2>
+                    <div class="card-image">
+                        <svg width="120" height="80" viewBox="0 0 120 80">
+                            <rect x="30" y="10" width="60" height="60" stroke="black" fill="none" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <label for="lado-cuadrado">Lado:</label>
+                        <input type="number" id="lado-cuadrado" required>
+                    </div>
+                    <div class="card-actions">
+                        <button type="button" onclick="calcular('cuadrado', 'area')">Calcular Área</button>
+                        <button type="button" onclick="calcular('cuadrado', 'perimetro')">Calcular Perímetro</button>
+                    </div>
+                </div>
+                <div class="card-result" id="result-cuadrado"></div>
+            </div>
+
+            <!-- Trapecio Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Trapecio</h2>
+                    <div class="card-image">
+                        <svg width="120" height="80" viewBox="0 0 120 80">
+                            <polygon points="30,20 90,20 110,60 10,60" stroke="black" fill="none" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <label for="base-mayor-trapecio">Base Mayor:</label>
+                        <input type="number" id="base-mayor-trapecio" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="base-menor-trapecio">Base Menor:</label>
+                        <input type="number" id="base-menor-trapecio" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="altura-trapecio">Altura:</label>
+                        <input type="number" id="altura-trapecio" required>
+                    </div>
+                    <div class="card-actions">
+                        <button type="button" onclick="calcular('trapecio', 'area')">Calcular Área</button>
+                        <button type="button" onclick="calcular('trapecio', 'perimetro')">Calcular Perímetro</button>
+                    </div>
+                </div>
+                <div class="card-result" id="result-trapecio"></div>
+            </div>
+
+            <!-- Rombo Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Rombo</h2>
+                    <div class="card-image">
+                        <svg width="120" height="80" viewBox="0 0 120 80">
+                            <polygon points="60,10 110,40 60,70 10,40" stroke="black" fill="none" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <label for="diagonal-mayor-rombo">Diagonal Mayor:</label>
+                        <input type="number" id="diagonal-mayor-rombo" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="diagonal-menor-rombo">Diagonal Menor:</label>
+                        <input type="number" id="diagonal-menor-rombo" required>
+                    </div>
+                    <div class="card-actions">
+                        <button type="button" onclick="calcular('rombo', 'area')">Calcular Área</button>
+                        <button type="button" onclick="calcular('rombo', 'perimetro')">Calcular Perímetro</button>
+                    </div>
+                </div>
+                <div class="card-result" id="result-rombo"></div>
+            </div>
         </div>
 
         <script src="/js/script.js"></script>

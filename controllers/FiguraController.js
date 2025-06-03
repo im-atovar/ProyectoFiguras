@@ -1,4 +1,4 @@
-import FiguraService from "../models/FiguraService.js";
+import FiguraService from "../models/figuraService.js";
 
 /**
  * Controlador para manejar las operaciones de figuras geométricas.
@@ -36,7 +36,7 @@ class FiguraController {
      * @throws {Error} Si la figura o la operación no son válidas, o si los datos ingresados son incorrectos.
      */ 
     calcularFiguras(request, response) {
-        const { figura, operacion, base, altura, radio } = request.body;
+        const { figura, operacion, base, altura, radio, lado, baseMayor, baseMenor, diagonalMayor, diagonalMenor } = request.body;
         let resultado;
 
         try {
@@ -57,6 +57,24 @@ class FiguraController {
                     resultado = this.figuraServices.calcularAreaCirculo(radio);
                 } else if (operacion === "perimetro") {
                     resultado = this.figuraServices.calcularPerimetroCirculo(radio);
+                }
+            } else if (figura === "cuadrado") {
+                if (operacion === "area") {
+                    resultado = this.figuraServices.calcularAreaCuadrado(lado);
+                } else if (operacion === "perimetro") {
+                    resultado = this.figuraServices.calcularPerimetroCuadrado(lado);
+                }
+            } else if (figura === "trapecio") {
+                if (operacion === "area") {
+                    resultado = this.figuraServices.calcularAreaTrapecio(baseMayor, baseMenor, altura);
+                } else if (operacion === "perimetro") {
+                    resultado = this.figuraServices.calcularPerimetroTrapecio(baseMayor, baseMenor, altura);
+                }
+            } else if (figura === "rombo") {
+                if (operacion === "area") {
+                    resultado = this.figuraServices.calcularAreaRombo(diagonalMayor, diagonalMenor);
+                } else if (operacion === "perimetro") {
+                    resultado = this.figuraServices.calcularPerimetroRombo(diagonalMayor, diagonalMenor);
                 }
             } else {
                 throw new Error("Figura no válida");
