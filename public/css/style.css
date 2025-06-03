@@ -144,6 +144,13 @@ button:hover {
     background-color: #d32f2f;
 }
 
+img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    object-fit: contain;
+}
+
 @media (max-width: 768px) {
     .cards-container {
         flex-direction: column;
