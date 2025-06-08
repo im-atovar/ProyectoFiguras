@@ -1,4 +1,4 @@
-import FiguraService from "../models/figuraService.js";
+import FiguraService from "../models/FiguraService.js";
 
 /**
  * Controlador para manejar las operaciones de figuras geométricas.

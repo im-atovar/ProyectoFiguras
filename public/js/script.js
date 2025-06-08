@@ -26,10 +26,21 @@ async function calcular(figura, operacion) {
         const base = document.getElementById('base-triangulo').value;
         const altura = document.getElementById('altura-triangulo').value;
         
-        if (!base || !altura || base <= 0 || altura <= 0) {
-            document.getElementById('result-triangulo').innerHTML = '<p class="error">Por favor ingrese valores válidos (mayores a 0)</p>';
-            error = true;
-        } else {
+        if(operacion === 'area') {
+            if (!base || !altura || base <= 0 || altura <= 0) {
+                document.getElementById('result-triangulo').innerHTML = '<p class="error">Por favor ingrese valores válidos (mayores a 0)</p>';
+                error = true;
+            }
+        }
+
+        if (operacion === 'perimetro') {
+            if (!base || base <= 0) {
+                document.getElementById('result-triangulo').innerHTML = '<p class="error">Por favor ingrese valores válidos (mayores a 0)</p>';
+                error = true;
+            }
+        }
+
+        if (!error) {
             datos = { figura, operacion, base, altura };
         }
     } else if (figura === 'circulo') {

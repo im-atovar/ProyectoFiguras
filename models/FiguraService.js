@@ -63,23 +63,21 @@ class FiguraService {
     }
 
     /**
-     * Calcula el perímetro de un triángulo.
+     * Calcula el perímetro de un triángulo equilatero.
      * @param {number} base - La base del triángulo.
-     * @param {number} altura - La altura del triángulo.
      * @returns {number} Resultado del perímetro del triángulo.
      * @throws {Error} Si la base o la altura son menores o iguales a cero.
      * @memberof FiguraService
      * @example
      * const figuraService = new FiguraService();
-     * const perimetro = figuraService.calcularPerimetroTriangulo(5, 10);
-     * console.log(perimetro); // 20.00
+     * const perimetro = figuraService.calcularPerimetroTriangulo(5);
+     * console.log(perimetro); // 15.00
      */
-    calcularPerimetroTriangulo(base, altura) {
-        if (base <= 0 || altura <= 0) {
+    calcularPerimetroTriangulo(base) {
+        if (base <= 0) {
             throw new Error("Base y altura deben ser números positivos.");
         }
-        const ladoIgual = Math.sqrt(Math.pow(base/2, 2) + Math.pow(altura, 2));
-        return parseFloat((parseFloat(base) + 2 * ladoIgual).toFixed(2));
+        return parseFloat((base * 3).toFixed(2));
     }
 
     /**
