@@ -1,6 +1,6 @@
 import FiguraService from '../models/FiguraService.js';
 
-describe('Areas API', () => {
+describe('Perímetros Test', () => {
     it('Calcula el perímetro de un rectángulo', () => {
         const _figuraService = new FiguraService();
         const response = _figuraService.calcularPerimetroRectangulo(5, 10);
